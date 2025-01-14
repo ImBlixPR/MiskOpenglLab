@@ -141,6 +141,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h" />
+    <ClInclude Include="src\Backends\ImguiBackend\imgui_impl_glfw.h" />
+    <ClInclude Include="src\Backends\ImguiBackend\imgui_impl_opengl3.h" />
+    <ClInclude Include="src\Backends\ImguiBackend\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="src\Core\Core.h" />
     <ClInclude Include="src\Core\Input.h" />
     <ClInclude Include="src\Core\KeyCode.h" />
@@ -154,15 +157,36 @@
     <ClInclude Include="src\Event\Event.h" />
     <ClInclude Include="src\Event\KeyEvent.h" />
     <ClInclude Include="src\Event\MouseEvent.h" />
+    <ClInclude Include="src\Game\Game.h" />
+    <ClInclude Include="src\Imgui\ImguiLayer.h" />
+    <ClInclude Include="src\Material\Texture.h" />
+    <ClInclude Include="src\Renderer\Core\Mesh.h" />
+    <ClInclude Include="src\Renderer\Debug\Grid.h" />
+    <ClInclude Include="src\Renderer\Opengl\Buffers.h" />
+    <ClInclude Include="src\Renderer\Opengl\SkyBox.h" />
+    <ClInclude Include="src\Shaders\Shader.h" />
+    <ClInclude Include="src\Utility\Cemera.h" />
     <ClInclude Include="src\mkpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\Backends\ImguiBackend\imgui_impl_glfw.cpp" />
+    <ClCompile Include="src\Backends\ImguiBackend\imgui_impl_opengl3.cpp" />
     <ClCompile Include="src\Core\Layer.cpp" />
     <ClCompile Include="src\Core\LayerStack.cpp" />
     <ClCompile Include="src\Core\Log.cpp" />
     <ClCompile Include="src\Core\WindowInput.cpp" />
     <ClCompile Include="src\Core\WindowWindows.cpp" />
+    <ClCompile Include="src\Game\Game.cpp" />
+    <ClCompile Include="src\Imgui\ImguiLayer.cpp" />
+    <ClCompile Include="src\Material\Texture.cpp" />
+    <ClCompile Include="src\Renderer\Core\Mesh.cpp" />
+    <ClCompile Include="src\Renderer\Debug\Grid.cpp" />
+    <ClCompile Include="src\Renderer\Opengl\IndexBuffer.cpp" />
+    <ClCompile Include="src\Renderer\Opengl\SkyBox.cpp" />
+    <ClCompile Include="src\Renderer\Opengl\VertexBuffer.cpp" />
+    <ClCompile Include="src\Shaders\Shader.cpp" />
+    <ClCompile Include="src\Utility\Cemera.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\mkpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

@@ -124,3 +124,6 @@
 #define MK_KEY_RIGHT_ALT          346
 #define MK_KEY_RIGHT_SUPER        347
 #define MK_KEY_MENU               348
+
+
+static bool keysBool[1024] = { 0 };
