@@ -172,4 +172,7 @@
     <ClCompile Include="src\mkpch.cpp" />
     <ClCompile Include="src\Renderer\Opengl\SkyBox.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Shaders\glsl\shader2d.vert" />
+  </ItemGroup>
 </Project>

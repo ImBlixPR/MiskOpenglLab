@@ -14,7 +14,7 @@ void main()
 	
 	
 	FragColor = vec4(vec3(texture(tex, TexCoords)), 1.0);
-	//FragColor = vec4(1.0);
+	//FragColor = vec4(1.0, 0.0, 0.0, 1.0);
 
 	//FragColor += vec4(normal, 1.0);
 

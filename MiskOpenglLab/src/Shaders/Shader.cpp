@@ -182,8 +182,10 @@ namespace Misk {
 
 	std::string Shader::loadShaderCode(const char* path)
 	{
+		const std::string basePath = "src/Shaders/glsl/";
+		std::string fullPath = basePath + path;
 		std::string content;
-		std::ifstream fileStream(path, std::ios::in);
+		std::ifstream fileStream(fullPath, std::ios::in);
 
 		if (!fileStream.is_open())
 		{

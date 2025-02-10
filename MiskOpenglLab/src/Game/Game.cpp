@@ -8,8 +8,11 @@
 #include "Utility/Cemera.h"
 #include "Core/Input.h"
 
+
 #include "Renderer/Opengl/SkyBox.h"
 #include "Renderer/Debug/Grid.h"
+
+#include "Renderer/Opengl/Buffers.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -123,7 +126,7 @@ public:
 		shader = new Misk::Shader();
 		MK_ASSERT(shader, "the object faild");
 
-		shader->init("src/Shaders/glsl/shaderV1.vert", "src/Shaders/glsl/shaderV1.frag");
+		shader->init("shaderV1.vert", "shaderV1.frag");
 
 		texture = new Misk::Texture();
 		texture->loadTexture("Media/container.jpg");
@@ -199,6 +202,8 @@ public:
 			//xDrawObject(squar, shader);
 		}
 
+
+
 	}
 
 	void OnImguiRender() override
@@ -255,6 +260,58 @@ public:
 };
 
 
+//class MainLayer : public Misk::Layer {
+//private:
+//	unsigned int VAO;
+//	Misk::Shader mainShader;
+//	Misk::Texture texture;
+//	Misk::Mesh* object;
+//public:
+//	MainLayer()
+//	{
+//		std::vector<Vertex> vertices = {
+//			Vertex{ { -0.5f, -0.5f,  0.5f}, { 0.0f,  0.0f,  1.0f}, {0.0f, 0.0f}},  // 16
+//			Vertex{ {  0.5f, -0.5f,  0.5f}, { 0.0f,  0.0f,  1.0f}, {1.0f, 0.0f}},  // 17
+//			Vertex{ {  0.5f,  0.5f,  0.5f}, { 0.0f,  0.0f,  1.0f}, {1.0f, 1.0f}},  // 18
+//			Vertex{ { -0.5f,  0.5f,  0.5f}, { 0.0f,  0.0f,  1.0f}, {0.0f, 1.0f}},  // 19
+//		};
+//
+//		std::vector<unsigned int> indices = {
+//			16, 17, 18, // First triangle
+//			18, 19, 16, // Second triangle
+//		};
+//
+//
+//		object = new Misk::Mesh(vertices, indices);
+//		object->initMesh();
+//		
+//		texture.loadTexture("Media/container.jpg");
+//
+//		mainShader.init("shaderV1.vert", "shaderV1.frag");
+//
+//	}
+//	
+//	void OnUpdate(Misk::Timestep ts) override
+//	{
+//
+//		mainShader.use();
+//		mainShader.setMat4f("projection", orthProj);
+//		mainShader.setMat4f("view", camera.calculateViewMatrix());
+//
+//		glm::mat4 model(1.0f);
+//		model = glm::scale(model, glm::vec3(2.0f));
+//		mainShader.setMat4f("model", model);
+//		texture.applyTexture(0);
+//		object->DrawMesh();
+//
+//
+//	}
+//	~MainLayer()
+//	{
+//		delete object;
+//	}
+//};
+
 Game::Game()
 {
 
@@ -263,10 +320,11 @@ Game::Game()
 		0.1f, 100.0f);	
 	//projection = orthProj = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f, -1.0f, 1.0f);
 
-	orthProj = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f, -1.0f, 1.0f);
+	orthProj = glm::ortho(0.0f, static_cast<float>(this->GetWindow().GetWidth()), 0.0f, static_cast<float>(this->GetWindow().GetHeight()), -1.0f, 1.0f);
 	camera = Misk::Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f, 5.0f, 0.5f);
 
 	glfwSetInputMode(this->GetWindow().GetNativeWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	PushLayer(new MainLayer());
 	PushOverlay(new DebugLayer());
+	
 }

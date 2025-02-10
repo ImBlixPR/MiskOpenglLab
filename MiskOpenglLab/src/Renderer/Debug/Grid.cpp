@@ -52,7 +52,7 @@ namespace Misk {
     {
         m_Shader = new Shader();
         MK_CORE_ASSERT(m_Shader, "Shader is not initilize!");
-        m_Shader->init("src/Shaders/glsl/grid.vert", "src/Shaders/glsl/grid.frag");
+        m_Shader->init("grid.vert", "grid.frag");
     }
 
     void Grid::render(glm::mat4 projection, glm::vec3 cameraPosition, glm::mat4 view, float thikness)
